@@ -1,3 +1,27 @@
+# Why fork?
+
+This repository is a fork of
+[moby/spdystream](https://github.com/moby/spdystream/), focused on the
+needs of [Teleport](https://github.com/gravitational/teleport).
+
+The fork exists because:
+
+1. It allows us to merge https://github.com/moby/spdystream/pull/91 without
+	 waiting for upstream to merge it. This is a critical fix for us otherwise
+	 our integration tests fail with data races.
+
+The fork is not intended to be a long-term fork. Once the upstream repo merges
+the PR and dependencies that require it are updated, we will switch to using the
+upstream repo again. The fork will be deleted at that point.
+
+The `master` branch reflects the upstream master.
+
+The `teleport` branch is the default and reflects the library version used by
+Teleport. There is no concept of semantic versioning for the `teleport` branch,
+it rolls forward as Teleport needs it to.
+
+You are looking at the `teleport` branch now.
+
 # SpdyStream
 
 A multiplexed stream library using spdy
